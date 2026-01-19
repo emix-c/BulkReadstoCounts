@@ -1,0 +1,17 @@
+# dir for input raw data 
+raw_data: /Users/Emix/Documents/WorkflowDevelopment/input_fastqs
+# dir for results
+results: /Users/Emix/Documents/WorkflowDevelopment/results
+# 1. FASTQC 
+fastqc: /Users/Emix/Documents/WorkflowDevelopment/scripts/fastqc.sh
+# 2. Trim via Trimmomatic + FASTQC again
+trim: /Users/Emix/Documents/WorkflowDevelopment/scripts/trim_fastqc.sh
+trim_threads: 2
+trailing_nts: 10 
+adapter: TruSeq3-PE-2.fa:2:30:10
+# 3. Alignment via Bowtie 2 
+align: /Users/Emix/Documents/WorkflowDevelopment/scripts/align.sh
+ref_genome: grch38
+align_threads: 2
+# 4. Get Counts via FeatureCounts 
+
