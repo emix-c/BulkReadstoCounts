@@ -1,4 +1,11 @@
 #!/bin/bash
+#SBATCH --partition=batch 
+#SBATCH --account=cedar
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=2gb
+#SBATCH --time=1:00:00
+#SBATCH --job-name=fastqc_test
 
 # Parse command-line arguments
 while [[ "$#" -gt 0 ]]; do

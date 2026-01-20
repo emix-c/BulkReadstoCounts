@@ -1,5 +1,13 @@
 #!/bin/bash
 
+#SBATCH --partition=batch 
+#SBATCH --account=cedar
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=6
+#SBATCH --mem=10gb
+#SBATCH --time=5:00:00
+#SBATCH --job-name=align_test
+
 # Parse command-line arguments
 while [[ "$#" -gt 0 ]]; do
     case $1 in
@@ -43,13 +51,16 @@ fi
 
 output_file=${outdir}/${s_info}_aligned.bam
 
+
 bowtie2 -x $genome \
     -1 $trimmed_1 \
     -2 $trimmed_2 \
     -p $t \
-    | samtools view -bS - \
-    | samtools sort -o $output_file
+    -S test.sam 
 
+samtools view -bS temp.sam | samtools sort -o $output_file 
+
+rm temp.sam
 
 
 

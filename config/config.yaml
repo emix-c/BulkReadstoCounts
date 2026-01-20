@@ -1,17 +1,19 @@
 # dir for input raw data 
-raw_data: /Users/Emix/Documents/WorkflowDevelopment/input_fastqs
+raw_data: ./input_fastqs
 # dir for results
-results: /Users/Emix/Documents/WorkflowDevelopment/results
+results: ./results
 # 1. FASTQC 
-fastqc: /Users/Emix/Documents/WorkflowDevelopment/scripts/fastqc.sh
+fastqc: ./scripts/fastqc.sh
 # 2. Trim via Trimmomatic + FASTQC again
-trim: /Users/Emix/Documents/WorkflowDevelopment/scripts/trim_fastqc.sh
-trim_threads: 2
+trim: ./scripts/trim_fastqc.sh
+trim_threads: 6
 trailing_nts: 10 
 adapter: TruSeq3-PE-2.fa:2:30:10
 # 3. Alignment via Bowtie 2 
-align: /Users/Emix/Documents/WorkflowDevelopment/scripts/align.sh
-ref_genome: grch38
-align_threads: 2
+align: ./scripts/align.sh
+ref_genome: /home/exacloud/gscratch/CEDAR/anno/indices/bowtie2/hg38/hg38
+align_threads: 6
 # 4. Get Counts via FeatureCounts 
+get_counts: ./BulkReadstoCounts/scripts/get_counts.sh
+gtf: /home/exacloud/gscratch/CEDAR/anno/gtf/Homo_sapiens.GRCh38.94.gtf
 

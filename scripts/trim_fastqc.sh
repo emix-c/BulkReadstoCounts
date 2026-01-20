@@ -1,5 +1,12 @@
 #!/bin/bash
-export _JAVA_OPTIONS="-Xmx4G"
+#SBATCH --partition=batch 
+#SBATCH --account=cedar
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=2
+#SBATCH --mem=5gb
+#SBATCH --time=4:00:00
+#SBATCH --job-name=trim_test
+
 
 # Parse command-line arguments
 while [[ "$#" -gt 0 ]]; do
